@@ -15,7 +15,7 @@ pipeline {
                     script{
                         dir("terraform")
                         {
-                          git "https://github.com/Frankpromise/EC2-run-docker-with-terraform.git"
+                          git "https://github.com/Frankpromise/Terraform-cicd-pipeline.git"
                         }
                     }
                 }
