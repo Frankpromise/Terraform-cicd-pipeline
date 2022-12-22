@@ -11,7 +11,7 @@ pipeline {
         stage("Checkout") {
             steps {
                     script{
-                        dir("terraform")
+                        dir("s3-backend")
                         {
                           git "https://github.com/Frankpromise/Terraform-cicd-pipeline.git"
                         }
