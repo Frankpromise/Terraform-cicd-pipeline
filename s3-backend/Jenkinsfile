@@ -4,14 +4,17 @@ pipeline {
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
-    
+
     agent any
 
     stages {
         stage("Checkout") {
-            steps {
-                checkout scm
-            }
+            script{
+                        dir("s3-backend")
+                        {
+                          git "https://github.com/Frankpromise/Terraform-cicd-pipeline.git"
+                        }
+                    }
         }
 
         stage ("terraform init") {
