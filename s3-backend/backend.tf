@@ -1,9 +1,13 @@
 terraform {
-  backend "s3" {
-    bucket = "tf-state-bucket-10"
-    key = "main"
-    region = "us-west-1"
-    dynamodb_table = "my-dynamodb-table"
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+    }
   }
 }
 
+provider "aws" {
+  region                  = "us-west-1"
+  shared_credentials_file = "~/.aws/credentials"
+  profile                 = "Vscode"
+}
